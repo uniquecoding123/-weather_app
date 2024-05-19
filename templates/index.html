@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Enter city name</h1>
+    <form method="post">
+        <label for="user_data">city_name:</label>
+        <input type="text" id="user_data" name="user_data" placeholder="New Delhi" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if user_data %}
+    <h2>weather report</h2>
+    <p>{{ user_data['weather'][0]['main']}}</p>
+    <p> Temp {{ user_data['main']['temp']}} </p>
+    <p>Feels like {{ user_data['main']['feels_like']}}</p>
+    <p>Min temp {{ user_data['main']['temp_min']}}</p>
+    <p>Max temp {{ user_data['main']['temp_max']}}</p>
+    <p>Humidity {{ user_data['main']['humidity']}} %</p>
+    <p>Wind {{ user_data['wind']['speed']}} kmph</p>
+
+     {% if user_data['main']['temp'] > 38 %}
+    <p> Stay inside, crank up the AC, and drink something icy before you melt! </p>
+    {% endif %}
+    {% if user_data['main']['temp'] < 30 %}
+    <p> The temperature is quite comfortable today,Enjoy the coffee </p>
+    {% endif %}
+
+
+   <!-- {'coord': {'lon': 77.2311, 'lat': 28.6128}, 'weather': [{'id': 721, 'main': 'Haze', 'description': 'haze', 'icon': '50d'}],
+    'base': 'stations', 'main': {'temp': 42.89, 'feels_like': 39.9, 'temp_min': 42.89, 'temp_max': 43.09, 'pressure': 998,
+    'humidity': 10}, 'visibility': 5000, 'wind': {'speed': 5.14, 'deg': 290}, 'clouds': {'all': 94}, 'dt': 1716122685, 'sys':
+    {'type': 2, 'id': 145989, 'country': 'IN', 'sunrise': 1716076694, 'sunset': 1716125828}, 'timezone': 19800, 'id': 1261481,
+    'name': 'New Delhi', 'cod': 200}  -->
+
+  {% endif %}
+</body>
+</html>

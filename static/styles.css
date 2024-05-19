@@ -1,0 +1,33 @@
+body {
+    background-image: url('weather_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+form {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
